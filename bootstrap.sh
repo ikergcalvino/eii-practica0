@@ -21,4 +21,4 @@ else
 fi
 echo "192.168.1.2 XXXXXXXXXX-master" >> /etc/hosts
 echo "192.168.1.3 XXXXXXXXXX-slave" >> /etc/hosts
-echo "192.168.1.4 XXXXXXXXXX-spare" >> /etc/hostsi
+echo "192.168.1.4 XXXXXXXXXX-spare" >> /etc/hosts
