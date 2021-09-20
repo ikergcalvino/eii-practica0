@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-  config.vm.box = "ubuntu/bionic6"
+  config.vm.box = "ubuntu/bionic64"
   config.vm.box_version = "20210916.0.0"
   config.vm.box_check_update = false
 
