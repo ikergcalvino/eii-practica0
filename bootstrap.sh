@@ -2,7 +2,7 @@
 
 # Actualizar paquetes instalados
 apt-get update
-apt-get -y upgrade
+#apt-get -y upgrade
 
 # Configurar locale
 locale-gen es_ES.UTF-8
