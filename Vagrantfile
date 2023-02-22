@@ -22,32 +22,32 @@ Vagrant.configure("2") do |config|
   ###############################################################
 
   # VM master
-  config.vm.define "XXXXXXXXXX-master" do |master|
+  config.vm.define "igc2223-master" do |master|
     master.vm.network "private_network", ip: "192.168.56.2"
     # aprovisionar o master
     master.vm.provision "shell" do |s|
       s.path = "bootstrap.sh"
-      s.args = ["XXXXXXXXXX-master"]
+      s.args = ["igc2223-master"]
     end
   end
 
   # VM slave
-  config.vm.define "XXXXXXXXXX-slave" do |slave|
+  config.vm.define "igc2223-slave" do |slave|
     slave.vm.network "private_network", ip: "192.168.56.3"
     # aprovisionar o slave
     slave.vm.provision "shell" do |s|
       s.path = "bootstrap.sh"
-      s.args = ["XXXXXXXXXX-slave"]
+      s.args = ["igc2223-slave"]
     end
   end
 
   # VM spare
-  config.vm.define "XXXXXXXXXX-spare" do |spare|
+  config.vm.define "igc2223-spare" do |spare|
     spare.vm.network "private_network", ip: "192.168.56.4"
     # aprovisionar o spare
     spare.vm.provision "shell" do |s|
       s.path = "bootstrap.sh"
-      s.args = ["XXXXXXXXXX-spare"]
+      s.args = ["igc2223-spare"]
     end
   end
 

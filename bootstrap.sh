@@ -21,14 +21,14 @@ systemctl enable chronyd.service
 if [[ ! $(grep "192.168.56" "/etc/hosts") ]]; then
  # Inserir as linhas iniciais 
  echo >> /etc/hosts
- echo "# XXXXXXXXXX-cluster" >> /etc/hosts
+ echo "# igc2223-cluster" >> /etc/hosts
 else
  # Eliminar as entradas de execucions previas
  sed -i "/192.168.56/d" /etc/hosts
 fi
-echo "192.168.56.2 XXXXXXXXXX-master" >> /etc/hosts
-echo "192.168.56.3 XXXXXXXXXX-slave" >> /etc/hosts
-echo "192.168.56.4 XXXXXXXXXX-spare" >> /etc/hosts
+echo "192.168.56.2 igc2223-master" >> /etc/hosts
+echo "192.168.56.3 igc2223-slave" >> /etc/hosts
+echo "192.168.56.4 igc2223-spare" >> /etc/hosts
 
 # Configurar hostname
 hostnamectl hostname $1
