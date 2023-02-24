@@ -13,6 +13,7 @@ Vagrant.configure("2") do |config|
   # As 3 VM comparten o disco dunha imaxe base e en cada unha só se almacenan os cambios
   config.vm.provider :virtualbox do |vb|
     vb.linked_clone = true
+    vb.cpus = 2
   end
 
   # Definición dos nós do cluster
