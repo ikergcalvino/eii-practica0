@@ -25,6 +25,13 @@ Vagrant.configure("2") do |config|
   # VM master
   config.vm.define "igc2223-master" do |master|
     master.vm.network "private_network", ip: "192.168.56.2"
+    master.vm.provider :virtualbox do |vb|
+      filename = "master-disk2.vdi"
+      unless File.exist?(filename)
+        vb.customize ["createmedium", "disk", "--filename", filename, "--format", "vdi", "--size", 1 * 1024]
+      end
+      vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 1, "--device", 0, "--type", "hdd", "--medium", filename]
+    end
     # aprovisionar o master
     master.vm.provision "shell" do |s|
       s.path = "bootstrap.sh"
@@ -35,6 +42,13 @@ Vagrant.configure("2") do |config|
   # VM slave
   config.vm.define "igc2223-slave" do |slave|
     slave.vm.network "private_network", ip: "192.168.56.3"
+    slave.vm.provider :virtualbox do |vb|
+      filename = "slave-disk2.vdi"
+      unless File.exist?(filename)
+        vb.customize ["createmedium", "disk", "--filename", filename, "--format", "vdi", "--size", 1 * 1024]
+      end
+      vb.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 1, "--device", 0, "--type", "hdd", "--medium", filename]
+    end
     # aprovisionar o slave
     slave.vm.provision "shell" do |s|
       s.path = "bootstrap.sh"
